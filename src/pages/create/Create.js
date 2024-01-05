@@ -22,7 +22,7 @@ export default function Create() {
 
         try{
             await projectFirestore.collection('recipes').add(doc)
-            history.push('/')
+            history.push('/Recipe-Book')
         } catch(err) {
             console.log(err)
         }

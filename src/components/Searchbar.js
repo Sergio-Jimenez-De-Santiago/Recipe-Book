@@ -11,7 +11,7 @@ export default function SearchBar() {
     const handleSubmit = e => {
         e.preventDefault()
 
-        history.push(`/search?q=${term}`)
+        history.push(`/Recipe-Book/search?q=${term}`)
     }
 
     return (

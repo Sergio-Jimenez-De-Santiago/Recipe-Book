@@ -21,16 +21,16 @@ function App() {
         <Navbar />
         <ThemeSelector />
         <Switch>
-          <Route exact path="/">
+          <Route exact path="/Recipe-Book">
             <Home />
           </Route>
-          <Route path="/create">
+          <Route path="/Recipe-Book/create">
             <Create />
           </Route>
-          <Route path="/search">
+          <Route path="/Recipe-Book/search">
             <Search />
           </Route>
-          <Route path="/recipes/:id">
+          <Route path="/Recipe-Book/recipes/:id">
             <Recipe />
           </Route>
         </Switch>

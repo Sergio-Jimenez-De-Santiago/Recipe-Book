@@ -13,11 +13,11 @@ export default function Navbar() {
     return (
         <div className='navbar' style={{ background: color }}>
             <nav>
-                <Link to="/" className="brand">
+                <Link to="/Recipe-Book" className="brand">
                     <h1>Sergio's recipe book</h1>
                 </Link>
                 <Searchbar />
-                <Link to="/create">Create Recipe</Link>
+                <Link to="/Recipe-Book/create">Create Recipe</Link>
             </nav>
         </div>
     )

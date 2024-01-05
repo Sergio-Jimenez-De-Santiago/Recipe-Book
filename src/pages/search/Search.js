@@ -12,7 +12,7 @@ import RecipeList from '../../components/RecipeList'
 export default function Search() {
     const queryString = useLocation().search
     const queryParams = new URLSearchParams(queryString)
-    const query = queryParams.get('q').toLowerCase()
+    const query = queryParams.get('q').toLowerCase().trim()
     const { mode } = useTheme()
 
     const [data, setData] = useState(null)
@@ -29,7 +29,7 @@ export default function Search() {
             } else{
                 let results = []
                 snapshot.docs.forEach(doc => {
-                    if(doc.data().title.toLowerCase().includes(query))
+                    if(doc.data().title.toLowerCase().trim().includes(query))
                     results.push({ id: doc.id, ...doc.data() })
                 })
                 setData(results)
