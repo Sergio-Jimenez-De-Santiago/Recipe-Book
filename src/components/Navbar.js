@@ -1,4 +1,6 @@
 import { Link } from 'react-router-dom'
+import { useLogout } from '../hooks/useLogout'
+import { useAuthContext } from '../hooks/useAuthContext'
 import { useTheme } from '../hooks/useTheme'
 
 // styles
@@ -8,6 +10,8 @@ import './Navbar.css'
 import Searchbar from './Searchbar'
 
 export default function Navbar() {
+    const { logout } = useLogout()
+    const { user } = useAuthContext()
     const { color } = useTheme()
 
     return (
@@ -18,6 +22,19 @@ export default function Navbar() {
                 </Link>
                 <Searchbar />
                 <Link to="/Recipe-Book/create">Create Recipe</Link>
+                {!user && (
+                    <>
+                        <p><Link to="/Recipe-Book/login">Login</Link></p>
+                        <p><Link to="/Recipe-Book/signup">Signup</Link></p>
+                    </>
+                )}
+
+                {user && (
+                    <>
+                        <p className='greetings'>Hello, {user.displayName}</p>
+                        <button className='logout' onClick={logout}>Logout</button>
+                    </>
+                )}
             </nav>
         </div>
     )

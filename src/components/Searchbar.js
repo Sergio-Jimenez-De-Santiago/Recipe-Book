@@ -10,8 +10,8 @@ export default function SearchBar() {
 
     const handleSubmit = e => {
         e.preventDefault()
-
         history.push(`/Recipe-Book/search?q=${term}`)
+        setTerm('')
     }
 
     return (
@@ -23,6 +23,7 @@ export default function SearchBar() {
                     id='search'
                     onChange={(e) => setTerm(e.target.value)}
                     required
+                    value={term}
                 />
             </form>
         </div>

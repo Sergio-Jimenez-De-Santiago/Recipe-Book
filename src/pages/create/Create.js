@@ -2,6 +2,7 @@ import { useState, useRef, useEffect } from 'react'
 import { useHistory } from 'react-router-dom'
 import { projectFirestore } from '../../firebase/config'
 import { useTheme } from '../../hooks/useTheme'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
 import './Create.css'
@@ -15,10 +16,12 @@ export default function Create() {
     const ingredientInput = useRef(null)
     const history = useHistory()
     const { mode } = useTheme()
+    const { user } = useAuthContext()
 
     const handleSubmit = async (e) => {
         e.preventDefault()
-        const doc = { title, ingredients, method, cookingTime: cookingTime + ' minutes' }
+        const uid = user.uid
+        const doc = { title, ingredients, method, cookingTime: cookingTime + ' minutes', uid }
 
         try{
             await projectFirestore.collection('recipes').add(doc)

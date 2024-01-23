@@ -1,7 +1,8 @@
 import { useLocation } from 'react-router-dom'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import { projectFirestore } from '../../firebase/config'
 import { useTheme } from '../../hooks/useTheme'
+import { useAuthContext } from '../../hooks/useAuthContext'
 
 // styles
 import './Search.css'
@@ -19,10 +20,14 @@ export default function Search() {
     const [isPending, setIsPending] = useState(false)
     const [error, setError] = useState(null)
 
+    const { user } = useAuthContext()
+
     useEffect(() => {
         setIsPending(true)
 
-        const unsub = projectFirestore.collection('recipes').onSnapshot((snapshot) => {
+        const ref = projectFirestore.collection('recipes').where("uid", "==", user.uid)
+
+        const unsub = ref.onSnapshot((snapshot) => {
             if(snapshot.empty){
                 setError('No recipes found')
                 setIsPending(false)
@@ -47,7 +52,7 @@ export default function Search() {
     return (
         <div>
             <h2 className={`page-title ${mode}`}>Recipes including "{query}"</h2>
-            {error && <p className='error'>{error}</p>}
+            {error && <p className={`error ${mode}`}>{error}</p>}
             {isPending && <p className='loading'>Loading...</p>}
             {data && <RecipeList recipes={data}/>}
         </div>
