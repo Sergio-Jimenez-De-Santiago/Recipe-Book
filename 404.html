@@ -7,12 +7,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Redirecting...</title>
     <script>
-        // Redirect all requests to index.html
-        var path = window.location.pathname;
-        if (path !== '/' && path.endsWith('/')) {
-            path = path.slice(0, -1); // Remove trailing slash
+        // Redirect all requests to the root URL
+        var url = window.location.href;
+        var recipeBookIndex = url.indexOf('Recipe-Book/');
+        if (recipeBookIndex !== -1) {
+            url = url.slice(0, recipeBookIndex + 'Recipe-Book/'.length); // Keep only up to Recipe-Book/
         }
-        window.location.replace(`/${path}index.html${window.location.search}`);
+        window.location.replace(url);
     </script>
 </head>
 
