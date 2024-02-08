@@ -3,7 +3,8 @@
     justify-content: flex-end;
     align-items: center;
     max-width: 1200px;
-    margin: 20px auto;
+    margin: 15px auto;
+    padding: 0 10px;
 }
 
 .theme-buttons div {

@@ -2,6 +2,7 @@
     color: #555;
     max-width: 480px;
     margin: 60px auto;
+    padding: 10px;
 }
 
 .create label span {
@@ -40,4 +41,9 @@
 /* dark mode */
 .create.dark {
     color: #a7a7a7;
+}
+
+#submit {
+    padding-left: 0;
+    padding-right: 0;
 }

@@ -90,7 +90,7 @@ export default function Create() {
                     />
                 </label>
 
-                <button className='btn'>Submit</button>
+                <button className='btn' id='submit'>submit</button>
             </form>
         </div>
     )

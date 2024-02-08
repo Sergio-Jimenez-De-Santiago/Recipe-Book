@@ -6,3 +6,15 @@
 .searchbar input {
     margin-left: 10px;
 }
+
+@media screen and (max-width: 750px) {
+    .searchbar {
+        font-size: large;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .searchbar {
+        font-size: medium;
+    }
+}

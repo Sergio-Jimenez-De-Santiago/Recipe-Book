@@ -9,6 +9,7 @@
     align-items: center;
     max-width: 1200px;
     margin: 0 auto;
+    flex-wrap: wrap;
 }
 
 .navbar a.brand {
@@ -45,11 +46,37 @@
     color: #333;
 }
 
-.greetings {
-    margin-left: 30px;
-}
-
 .navbar a:not(.brand):hover {
     background: #fff;
     color: #333;
+}
+
+@media screen and (max-width: 750px) {
+    .navbar-title {
+        font-size: larger;
+    }
+
+    .navbar a:not(.brand) {
+        padding: 6px;
+        font-size: large;
+        margin: 5px;
+        display: inline-block;
+    }
+
+    .logout {
+        margin: 5px;
+        padding: 6px;
+        font-size: large;
+        display: inline-block;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .navbar a:not(.brand) {
+        font-size: medium;
+    }
+
+    .logout {
+        font-size: medium;
+    }
 }

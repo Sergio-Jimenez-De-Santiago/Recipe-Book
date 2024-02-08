@@ -50,7 +50,7 @@ export default function Search() {
     }, [query])
 
     return (
-        <div>
+        <div className='search'>
             <h2 className={`page-title ${mode}`}>Recipes including "{query}"</h2>
             {error && <p className={`error ${mode}`}>{error}</p>}
             {isPending && <p className='loading'>Loading...</p>}

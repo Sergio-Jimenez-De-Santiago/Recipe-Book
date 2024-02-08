@@ -18,7 +18,7 @@ export default function Navbar() {
         <div className='navbar' style={{ background: color }}>
             <nav>
                 <Link to="/Recipe-Book" className="brand">
-                    <h1>Sergio's recipe book</h1>
+                    <h1 className='navbar-title'>Sergio's recipe book</h1>
                 </Link>
                 <Searchbar />
                 <Link to="/Recipe-Book/create">Create Recipe</Link>
@@ -30,10 +30,7 @@ export default function Navbar() {
                 )}
 
                 {user && (
-                    <>
-                        <p className='greetings'>Hello, {user.displayName}</p>
-                        <button className='logout' onClick={logout}>Logout</button>
-                    </>
+                    <button className='logout' onClick={logout}>Logout</button>
                 )}
             </nav>
         </div>
