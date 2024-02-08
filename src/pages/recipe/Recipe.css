@@ -24,13 +24,13 @@
     padding: 0;
     justify-content: center;
     margin-top: 0;
+    flex-wrap: wrap;
 }
 
 .recipe li {
     list-style-type: none;
     margin-right: 10px;
     color: #777;
-    word-break: break-all;
 }
 
 .recipe li::after {
